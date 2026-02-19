@@ -3,10 +3,10 @@ import { Menu, X, BookOpen } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
-  { label: "Corsi di Inglese", href: "#programmi" },
-  { label: "Coaching Carriera", href: "#programmi" },
+  { label: "Corsi", href: "#programmi" },
+  { label: "Specializzazioni", href: "#specializzazioni" },
+  { label: "Chi Siamo", href: "#chi-siamo" },
   { label: "Prezzi", href: "#prezzi" },
-  { label: "Chi Siamo", href: "#come-funziona" },
   { label: "Contatti", href: "#contatti" },
 ];
 
@@ -36,7 +36,7 @@ export default function Header() {
           </div>
           <div className="leading-tight">
             <span className="font-display text-primary-foreground font-bold text-lg block">
-              Learn with <span className="text-gradient-gold">Smile</span>
+              Prep with <span className="text-gradient-gold">Smile</span>
             </span>
             <span className="font-body text-primary-foreground/60 text-[10px] uppercase tracking-widest">
               Inglese & Carriera

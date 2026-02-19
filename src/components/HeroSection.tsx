@@ -36,7 +36,7 @@ export default function HeroSection() {
           {/* Pill badge */}
           <div className="animate-fade-in-up animate-delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-body font-semibold uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Accademia di Inglese & Carriera — Italia
+            Prep with Smile — Accademia di Inglese & Carriera
           </div>
 
           {/* Title */}
