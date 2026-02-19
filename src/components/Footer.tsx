@@ -12,8 +12,8 @@ export default function Footer() {
                 <BookOpen className="w-5 h-5 text-accent-foreground" />
               </div>
               <div>
-                <span className="font-display text-primary-foreground font-bold text-lg block">
-                  Learn with <span className="text-gradient-gold">Smile</span>
+              <span className="font-display text-primary-foreground font-bold text-lg block">
+                  Prep with <span className="text-gradient-gold">Smile</span>
                 </span>
                 <span className="text-primary-foreground/50 text-[10px] uppercase tracking-widest">
                   Inglese & Carriera
@@ -45,8 +45,8 @@ export default function Footer() {
             <ul className="space-y-3 font-body text-sm text-primary-foreground/70">
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-accent" />
-                <a href="mailto:info@learnwithsmile.it" className="hover:text-accent transition-colors">
-                  info@learnwithsmile.it
+                <a href="mailto:info@prepwithsmile.it" className="hover:text-accent transition-colors">
+                  info@prepwithsmile.it
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -74,7 +74,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 font-body text-xs text-primary-foreground/40">
-          <span>© 2025 Learn with Smile Italy. Tutti i diritti riservati.</span>
+          <span>© 2025 Prep with Smile. Tutti i diritti riservati.</span>
           <span>Corsi di inglese business · Coaching carriera · Online</span>
         </div>
       </div>

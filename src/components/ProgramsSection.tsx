@@ -1,36 +1,17 @@
-import { Briefcase, TrendingUp, MessageCircle, ArrowRight } from "lucide-react";
+import { Briefcase, TrendingUp, MessageCircle, ArrowRight, Users, Target, Brain, Layers, Network, BookOpen, Star, CheckCircle } from "lucide-react";
 
-const programs = [
-  {
-    icon: Briefcase,
-    tag: "Più Popolare",
-    title: "Business English",
-    subtitle: "1:1 o Gruppo",
-    desc: "Perfeziona la tua comunicazione per presentazioni, negoziazioni e networking internazionale. Sessioni personalizzate sul tuo settore.",
-    features: ["Presentazioni efficaci", "Negoziazioni in inglese", "Networking professionale", "Terminologia di settore"],
-    cta: "Inizia ora",
-    featured: true,
-  },
-  {
-    icon: TrendingUp,
-    tag: "Carriera",
-    title: "Career Accelerator",
-    subtitle: "Programma intensivo",
-    desc: "Ottimizzazione CV in inglese, profilo LinkedIn professionale e simulazioni di colloqui con feedback dettagliato.",
-    features: ["CV in inglese ottimizzato", "LinkedIn professionale", "Simulazione colloqui", "Interview coaching"],
-    cta: "Accelera ora",
-    featured: false,
-  },
-  {
-    icon: MessageCircle,
-    tag: "Fluency",
-    title: "Conversazione & Fluency",
-    subtitle: "Per chi vuole fluidità",
-    desc: "Per chi ha una base ma vuole parlare senza esitazioni. Focus su confidenza, velocità e pronuncia naturale.",
-    features: ["Conversazione libera", "Riduzione dell'accento", "Pensiero in inglese", "Situazioni reali"],
-    cta: "Prova gratis",
-    featured: false,
-  },
+const eliteSteps = [
+  { icon: Target, title: "Analisi Diagnostica", desc: "Valutazione linguistica e delle soft skills per identificare le aree prioritarie." },
+  { icon: Brain, title: "Micro-Targeting", desc: "Lezioni basate sui tuoi task lavorativi reali: email, presentazioni, call." },
+  { icon: Star, title: "Feedback Deep-Dive", desc: "Correzione di tono, registro e cultura aziendale con analisi approfondita." },
+  { icon: CheckCircle, title: "Simulazioni", desc: "Role-play su scenari complessi: negoziazioni, conflitti, pitch aziendali." },
+];
+
+const socialSteps = [
+  { icon: Network, title: "Networking", desc: "Interazione tra professionisti di diversi settori per costruire connessioni." },
+  { icon: BookOpen, title: "Metodo Socratico", desc: "Discussioni su casi studio aziendali reali per stimolare il pensiero critico." },
+  { icon: Users, title: "Peer Review", desc: "Scambio di feedback moderato dal docente in un ambiente sicuro e stimolante." },
+  { icon: Layers, title: "Project-Based", desc: "Lavoro di squadra su progetti simulati con output concreti e misurabili." },
 ];
 
 export default function ProgramsSection() {
@@ -47,75 +28,138 @@ export default function ProgramsSection() {
             <span className="text-gradient-gold">per te</span>
           </h2>
           <p className="font-body text-muted-foreground mt-4 text-lg">
-            Scegli il programma più adatto ai tuoi obiettivi professionali.
+            Scegli tra il percorso d'élite personalizzato o la potenza del social learning.
           </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {programs.map((p) => (
-            <div
-              key={p.title}
-              className={`relative rounded-2xl p-8 flex flex-col transition-all duration-300 hover:scale-[1.02] ${
-                p.featured
-                  ? "gradient-hero text-primary-foreground shadow-lg"
-                  : "bg-surface border border-border hover:border-accent/30 hover:shadow-card"
-              }`}
-            >
-              {/* Tag */}
-              <span
-                className={`absolute -top-3 left-6 px-3 py-1 rounded-full text-xs font-body font-bold ${
-                  p.featured
-                    ? "gradient-gold text-accent-foreground shadow-gold"
-                    : "bg-secondary text-secondary-foreground"
-                }`}
-              >
-                {p.tag}
-              </span>
-
-              {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
-                p.featured ? "bg-primary-foreground/15" : "gradient-gold shadow-gold"
-              }`}>
-                <p.icon className={`w-6 h-6 ${p.featured ? "text-primary-foreground" : "text-accent-foreground"}`} />
+        {/* Two main tracks */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+          {/* Elite 1:1 */}
+          <div className="rounded-2xl overflow-hidden border border-border shadow-card">
+            {/* Image */}
+            <div className="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80"
+                alt="Sessione 1:1 di coaching Business English"
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-primary/60" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <span className="inline-flex w-fit items-center gap-1.5 px-3 py-1 rounded-full gradient-gold text-accent-foreground text-xs font-body font-bold mb-2 shadow-gold">
+                  ✦ Percorso Élite
+                </span>
+                <h3 className="font-display text-2xl font-bold text-primary-foreground">Sessioni 1:1</h3>
+                <p className="font-body text-sm text-primary-foreground/70">Personalizzazione massima, risultati garantiti</p>
               </div>
-
-              <h3 className={`font-display text-2xl font-bold mb-0.5 ${p.featured ? "text-primary-foreground" : "text-primary"}`}>
-                {p.title}
-              </h3>
-              <p className={`font-body text-sm mb-4 ${p.featured ? "text-primary-foreground/60" : "text-muted-foreground"}`}>
-                {p.subtitle}
-              </p>
-              <p className={`font-body text-sm leading-relaxed mb-6 ${p.featured ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
-                {p.desc}
-              </p>
-
-              {/* Features */}
-              <ul className="space-y-2 flex-1 mb-8">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 font-body text-sm">
-                    <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${p.featured ? "bg-accent" : "bg-accent"}`} />
-                    <span className={p.featured ? "text-primary-foreground/80" : "text-foreground"}>
-                      {f}
-                    </span>
-                  </li>
+            </div>
+            {/* Content */}
+            <div className="p-6 bg-surface">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {eliteSteps.map((s) => (
+                  <div key={s.title} className="flex gap-3">
+                    <div className="w-9 h-9 rounded-lg gradient-gold flex items-center justify-center flex-shrink-0 shadow-gold mt-0.5">
+                      <s.icon className="w-4 h-4 text-accent-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-display text-sm font-bold text-primary mb-0.5">{s.title}</h4>
+                      <p className="font-body text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-
-              {/* CTA */}
+              </div>
               <a
                 href="#contatti"
-                className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-body font-semibold text-sm transition-all duration-200 ${
-                  p.featured
-                    ? "gradient-gold text-accent-foreground shadow-gold hover:shadow-lg hover:scale-105"
-                    : "bg-primary text-primary-foreground hover:bg-secondary"
-                }`}
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-lg gradient-hero text-primary-foreground font-body font-semibold text-sm hover:opacity-90 transition-all duration-200"
               >
-                {p.cta}
+                Inizia il Percorso Élite
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>
-          ))}
+          </div>
+
+          {/* Social Group */}
+          <div className="rounded-2xl overflow-hidden border border-border shadow-card">
+            {/* Image */}
+            <div className="relative h-52 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+                alt="Workshop di gruppo Business English"
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-primary/60" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <span className="inline-flex w-fit items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-body font-bold mb-2">
+                  ♦ Percorso Social
+                </span>
+                <h3 className="font-display text-2xl font-bold text-primary-foreground">Sessioni di Gruppo</h3>
+                <p className="font-body text-sm text-primary-foreground/70">Networking, collaborazione e crescita collettiva</p>
+              </div>
+            </div>
+            {/* Content */}
+            <div className="p-6 bg-surface">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {socialSteps.map((s) => (
+                  <div key={s.title} className="flex gap-3">
+                    <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <s.icon className="w-4 h-4 text-secondary-foreground" />
+                    </div>
+                    <div>
+                      <h4 className="font-display text-sm font-bold text-primary mb-0.5">{s.title}</h4>
+                      <p className="font-body text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <a
+                href="#contatti"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 px-5 py-3 rounded-lg border-2 border-primary text-primary font-body font-semibold text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              >
+                Unisciti al Gruppo
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Career Accelerator */}
+        <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-border shadow-card">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            <div className="relative h-64 lg:h-auto overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80"
+                alt="Career coaching con CV e LinkedIn"
+                className="w-full h-full object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-primary/50" />
+            </div>
+            <div className="p-8 bg-surface flex flex-col justify-center">
+              <span className="inline-block font-body text-xs font-semibold uppercase tracking-widest text-accent mb-3">
+                Programma Intensivo
+              </span>
+              <h3 className="font-display text-3xl font-bold text-primary mb-3">Career Accelerator</h3>
+              <p className="font-body text-muted-foreground text-sm leading-relaxed mb-6">
+                Il pacchetto completo per chi vuole cambiare lavoro o fare carriera nel mercato globale. CV ottimizzato, LinkedIn professionale, simulazioni di colloqui con feedback dettagliato.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {["CV in inglese ottimizzato", "Profilo LinkedIn professionale", "5 simulazioni di colloquio", "Coaching strategico di carriera", "Personal Branding Internazionale", "Salary Negotiation Strategies"].map((f) => (
+                  <li key={f} className="flex items-center gap-2 font-body text-sm text-foreground">
+                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#contatti"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg gradient-gold text-accent-foreground font-body font-bold text-sm shadow-gold hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                Accelera la tua Carriera
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
