@@ -17,11 +17,12 @@ const navLinks = [
     href: "#",
     children: cities.map((c) => ({ label: c.name, href: `/citta/${c.slug}` })),
   },
+  { label: "Mercato del Lavoro", href: "/mercato-del-lavoro-italia" },
   { label: "Chi Siamo", href: "/chi-siamo" },
   { label: "Prezzi", href: "/prezzi" },
 ];
 
-const darkHeroPages = ["/chi-siamo", "/business-english", "/career-counselling", "/interview-prep", "/ielts-prep"];
+const darkHeroPages = ["/chi-siamo", "/business-english", "/career-counselling", "/interview-prep", "/ielts-prep", "/mercato-del-lavoro-italia"];
 
 function DropdownMenu({ label, children, onNavigate, isLight }: { label: string; children: { label: string; href: string }[]; onNavigate?: () => void; isLight?: boolean }) {
   const [open, setOpen] = useState(false);

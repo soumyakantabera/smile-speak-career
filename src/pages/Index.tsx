@@ -15,28 +15,28 @@ const stats = [
 
 const problems = [
   {
-    icon: Languages,
-    title: "L'Italia è 35ª in Europa per Inglese",
-    description: "Secondo l'EF English Proficiency Index, l'Italia si posiziona tra gli ultimi paesi europei per competenza linguistica. Questo gap frena milioni di professionisti ogni giorno.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80",
+    icon: Briefcase,
+    title: "\"English Required\" nel 68% delle Offerte",
+    description: "Quasi 7 offerte su 10 nelle grandi aziende italiane e multinazionali richiedono almeno un inglese B2. Senza, la tua candidatura viene scartata prima ancora che leggano il tuo CV.",
+    image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=600&q=80",
   },
   {
     icon: TrendingDown,
-    title: "Stipendi Più Bassi Senza Inglese",
-    description: "I professionisti italiani senza inglese guadagnano in media il 20-30% in meno rispetto ai colleghi bilingui. Il gap salariale è reale e misurabile.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
+    title: "Il 'Soffitto di Cristallo' Linguistico",
+    description: "Pronto per la promozione, ma il prossimo livello richiede inglese fluente? Il 54% dei manager italiani riconosce l'inglese come il principale ostacolo alla crescita verticale.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+  },
+  {
+    icon: Languages,
+    title: "Le MNC Assumono Solo in Inglese",
+    description: "Amazon, Google, Stellantis, Luxottica: le realtà con i migliori stipendi in Italia conducono tutte le selezioni in inglese. Se non sei pronto, non passi nemmeno il primo step.",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80",
   },
   {
     icon: AlertTriangle,
-    title: "Colloqui Persi per Insicurezza",
-    description: "Il 67% dei professionisti italiani evita candidature internazionali per paura di non superare il colloquio in inglese. Un'opportunità persa è un sogno rimandato.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
-  },
-  {
-    icon: Briefcase,
-    title: "Talento Italiano, Visibilità Zero",
-    description: "CV mal tradotti, profili LinkedIn inesistenti in inglese, personal branding assente: il talento c'è, ma il mondo non lo vede.",
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80",
+    title: "Freelance e Startup: l'Inglese è Valuta",
+    description: "Nel mercato digitale italiano, consulenti e founder che operano in inglese guadagnano il 30-40% in più. I clienti internazionali pagano meglio — ma prima devi riuscire a parlarci.",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",
   },
 ];
 
@@ -131,13 +131,14 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-light text-orange-dark text-sm font-semibold mb-4">
-              <AlertTriangle className="w-4 h-4" /> Il Problema è Reale
+              <AlertTriangle className="w-4 h-4" /> Il Mercato del Lavoro Italiano Ha le Sue Regole
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-heading mb-4">
-              L'Italia Ha un <span className="text-gradient-orange">Problema</span> con l'Inglese
+              Perché l'Inglese È Diventato{" "}
+              <span className="text-gradient-orange">Obbligatorio</span> in Italia
             </h2>
             <p className="font-body text-muted-foreground max-w-2xl mx-auto">
-              Parliamoci chiaro: i professionisti italiani sono brillanti, ma il gap linguistico li tiene indietro. Ecco cosa succede ogni giorno.
+              Non è più un "plus" sul CV. Nelle aziende che pagano davvero bene, l'inglese è il requisito minimo — e ignorarlo significa restare fuori dal gioco.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
@@ -163,13 +164,21 @@ const Index = () => {
             })}
           </div>
           <div className="text-center mt-12">
-            <p className="font-body text-lg text-heading font-semibold mb-4">Ma la buona notizia? <span className="text-gradient-teal">Si può cambiare.</span></p>
-            <Link
-              to="/contatti"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl gradient-teal text-white font-body font-semibold shadow-teal hover:shadow-lg hover:scale-105 transition-all duration-200"
-            >
-              Inizia a Cambiare Oggi <ArrowRight className="w-5 h-5" />
-            </Link>
+            <p className="font-body text-lg text-heading font-semibold mb-4">La buona notizia? <span className="text-gradient-teal">Sei nel posto giusto.</span></p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/contatti"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl gradient-teal text-white font-body font-semibold shadow-teal hover:shadow-lg hover:scale-105 transition-all duration-200"
+              >
+                Inizia a Cambiare Oggi <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                to="/mercato-del-lavoro-italia"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-primary text-primary font-body font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+              >
+                Guida al Mercato del Lavoro <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

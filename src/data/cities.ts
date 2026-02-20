@@ -43,7 +43,7 @@ export const cities: CityData[] = [
   {
     slug: "bologna",
     name: "Bologna",
-    heroImage: "https://images.unsplash.com/photo-1564488227740-62bfa3c6085e?w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
     description: "Corsi di inglese professionale a Bologna per accademici, ricercatori e professionisti.",
     localContext: "Bologna, sede della più antica università del mondo e hub di innovazione, richiede competenze linguistiche accademiche e professionali. I nostri corsi supportano ricercatori, docenti e professionisti bolognesi.",
     testimonial: { name: "Stefano B.", role: "Ricercatore Universitario, Bologna", quote: "Ho pubblicato il mio primo paper in inglese e presentato a una conferenza internazionale." },
