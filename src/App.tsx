@@ -10,7 +10,6 @@ import ChiSiamo from "./pages/ChiSiamo";
 import Prezzi from "./pages/Prezzi";
 import Contatti from "./pages/Contatti";
 import CityPage from "./pages/CityPage";
-import MercatoDelLavoro from "./pages/MercatoDelLavoro";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,7 +31,6 @@ const App = () => (
             <Route path="/prezzi" element={<Prezzi />} />
             <Route path="/contatti" element={<Contatti />} />
             <Route path="/citta/:slug" element={<CityPage />} />
-            <Route path="/mercato-del-lavoro-italia" element={<MercatoDelLavoro />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

@@ -69,7 +69,6 @@ export default function Footer() {
             © {new Date().getFullYear()} Prep with Smile. Tutti i diritti riservati.
           </p>
           <div className="flex gap-6">
-            <Link to="/mercato-del-lavoro-italia" className="text-xs text-white/40 hover:text-white/60 transition-colors">Mercato del Lavoro</Link>
             <Link to="/chi-siamo" className="text-xs text-white/40 hover:text-white/60 transition-colors">Chi Siamo</Link>
             <Link to="/prezzi" className="text-xs text-white/40 hover:text-white/60 transition-colors">Prezzi</Link>
             <Link to="/contatti" className="text-xs text-white/40 hover:text-white/60 transition-colors">Contatti</Link>
