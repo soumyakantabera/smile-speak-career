@@ -21,6 +21,7 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        heading: "hsl(var(--heading))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -49,14 +50,15 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        navy: "hsl(var(--navy))",
-        slate: {
-          brand: "hsl(var(--slate))",
-          light: "hsl(var(--slate-light))",
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          dark: "hsl(var(--teal-dark))",
+          light: "hsl(var(--teal-light))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          dark: "hsl(var(--gold-dark))",
+        orange: {
+          DEFAULT: "hsl(var(--orange))",
+          dark: "hsl(var(--orange-dark))",
+          light: "hsl(var(--orange-light))",
         },
         surface: {
           DEFAULT: "hsl(var(--surface))",
@@ -81,7 +83,8 @@ export default {
       boxShadow: {
         card: "var(--shadow-md)",
         lg: "var(--shadow-lg)",
-        gold: "var(--shadow-gold)",
+        teal: "var(--shadow-teal)",
+        orange: "var(--shadow-orange)",
       },
       keyframes: {
         "accordion-down": {
@@ -95,10 +98,6 @@ export default {
         fadeInUp: {
           from: { opacity: "0", transform: "translateY(28px)" },
           to: { opacity: "1", transform: "translateY(0)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
