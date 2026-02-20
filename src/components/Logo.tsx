@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function Logo({ size = "md", variant = "default" }: { size?: "sm" | "md" | "lg"; variant?: "default" | "light" }) {
+export default function Logo({ size = "md" }: { size?: "sm" | "md" | "lg" }) {
   const sizes = {
     sm: { icon: 32, text: "text-base", sub: "text-[9px]" },
     md: { icon: 38, text: "text-lg", sub: "text-[10px]" },
     lg: { icon: 48, text: "text-2xl", sub: "text-xs" },
   };
   const s = sizes[size];
-
-  const textColor = variant === "light" ? "text-white" : "text-heading";
-  const subColor = variant === "light" ? "text-white/60" : "text-muted-foreground";
 
   return (
     <Link to="/" className="flex items-center gap-2.5 group">
@@ -25,10 +22,10 @@ export default function Logo({ size = "md", variant = "default" }: { size?: "sm"
         </defs>
       </svg>
       <div className="leading-tight">
-        <span className={`font-display block ${textColor} ${s.text}`}>
+        <span className={`font-display text-heading block ${s.text}`}>
           Prep with <span className="text-gradient-orange">Smile</span>
         </span>
-        <span className={`font-body uppercase tracking-widest ${subColor} ${s.sub}`}>
+        <span className={`font-body text-muted-foreground uppercase tracking-widest ${s.sub}`}>
           Inglese & Carriera
         </span>
       </div>

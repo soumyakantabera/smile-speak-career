@@ -21,9 +21,7 @@ const navLinks = [
   { label: "Prezzi", href: "/prezzi" },
 ];
 
-const darkHeroPages = ["/chi-siamo", "/business-english", "/career-counselling", "/interview-prep", "/ielts-prep"];
-
-function DropdownMenu({ label, children, onNavigate, isLight }: { label: string; children: { label: string; href: string }[]; onNavigate?: () => void; isLight?: boolean }) {
+function DropdownMenu({ label, children, onNavigate }: { label: string; children: { label: string; href: string }[]; onNavigate?: () => void }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -39,9 +37,7 @@ function DropdownMenu({ label, children, onNavigate, isLight }: { label: string;
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1 font-body text-sm transition-colors duration-200 ${
-          isLight ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-primary"
-        }`}
+        className="flex items-center gap-1 font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-200"
       >
         {label} <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -69,9 +65,6 @@ export default function Header() {
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  const isDarkHero = darkHeroPages.includes(location.pathname) || location.pathname.startsWith("/citta/");
-  const isLight = isDarkHero && !scrolled;
-
   useEffect(() => {
     setMobileOpen(false);
     setMobileDropdown(null);
@@ -92,21 +85,21 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Logo size="md" variant={isLight ? "light" : "default"} />
+        <Logo size="md" />
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) =>
             link.children ? (
-              <DropdownMenu key={link.label} label={link.label} children={link.children} isLight={isLight} />
+              <DropdownMenu key={link.label} label={link.label} children={link.children} />
             ) : (
               <Link
                 key={link.label}
                 to={link.href}
                 className={`font-body text-sm transition-colors duration-200 ${
                   location.pathname === link.href
-                    ? isLight ? "text-white font-semibold" : "text-primary font-semibold"
-                    : isLight ? "text-white/90 hover:text-white" : "text-foreground/80 hover:text-primary"
+                    ? "text-primary font-semibold"
+                    : "text-foreground/80 hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -124,7 +117,7 @@ export default function Header() {
         </Link>
 
         {/* Mobile toggle */}
-        <button className={`lg:hidden ${isLight ? "text-white" : "text-foreground"}`} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Users, Globe, Award, Star, MapPin, TrendingDown, AlertTriangle, Languages, Briefcase } from "lucide-react";
+import { ArrowRight, CheckCircle, Users, Globe, Award, Star, MapPin } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import PersonalizedProcess from "@/components/PersonalizedProcess";
 import CityCard from "@/components/CityCard";
@@ -11,33 +11,6 @@ const stats = [
   { value: "98%", label: "Soddisfazione clienti" },
   { value: "15+", label: "Settori coperti" },
   { value: "100%", label: "Percorsi personalizzati" },
-];
-
-const problems = [
-  {
-    icon: Languages,
-    title: "L'Italia è 35ª in Europa per Inglese",
-    description: "Secondo l'EF English Proficiency Index, l'Italia si posiziona tra gli ultimi paesi europei per competenza linguistica. Questo gap frena milioni di professionisti ogni giorno.",
-    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80",
-  },
-  {
-    icon: TrendingDown,
-    title: "Stipendi Più Bassi Senza Inglese",
-    description: "I professionisti italiani senza inglese guadagnano in media il 20-30% in meno rispetto ai colleghi bilingui. Il gap salariale è reale e misurabile.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
-  },
-  {
-    icon: AlertTriangle,
-    title: "Colloqui Persi per Insicurezza",
-    description: "Il 67% dei professionisti italiani evita candidature internazionali per paura di non superare il colloquio in inglese. Un'opportunità persa è un sogno rimandato.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80",
-  },
-  {
-    icon: Briefcase,
-    title: "Talento Italiano, Visibilità Zero",
-    description: "CV mal tradotti, profili LinkedIn inesistenti in inglese, personal branding assente: il talento c'è, ma il mondo non lo vede.",
-    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80",
-  },
 ];
 
 const homeProcessSteps = [
@@ -84,10 +57,11 @@ const Index = () => {
                 <Star className="w-4 h-4" /> #1 English Coaching in Italia
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-heading mb-6 leading-tight">
-                Parla Inglese, <span className="text-gradient-teal">Spacca</span> al Colloquio, <span className="text-gradient-orange">Decolla</span> 🚀
+                Preparati al <span className="text-gradient-teal">Successo</span> con un{" "}
+                <span className="text-gradient-orange">Sorriso</span>
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg">
-                Basta corsi noiosi che non portano a nulla. Business English, Career Coaching, Interview Prep e IELTS — tutto costruito su di te, i tuoi sogni, il tuo settore. Risultati veri in settimane, non anni.
+                Business English, Career Counselling, Interview Prep e IELTS. Percorsi 100% personalizzati per professionisti italiani ambiziosi.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -126,54 +100,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Problems in Italy */}
-      <section className="py-20 bg-gradient-to-b from-background to-surface-alt">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-light text-orange-dark text-sm font-semibold mb-4">
-              <AlertTriangle className="w-4 h-4" /> Il Problema è Reale
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl text-heading mb-4">
-              L'Italia Ha un <span className="text-gradient-orange">Problema</span> con l'Inglese
-            </h2>
-            <p className="font-body text-muted-foreground max-w-2xl mx-auto">
-              Parliamoci chiaro: i professionisti italiani sono brillanti, ma il gap linguistico li tiene indietro. Ecco cosa succede ogni giorno.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {problems.map((problem) => {
-              const Icon = problem.icon;
-              return (
-                <GlassCard key={problem.title} className="flex flex-col md:flex-row gap-5 items-start">
-                  <img
-                    src={problem.image}
-                    alt={problem.title}
-                    className="w-full md:w-40 h-32 md:h-full rounded-xl object-cover flex-shrink-0"
-                    loading="lazy"
-                  />
-                  <div>
-                    <div className="w-10 h-10 rounded-lg gradient-orange flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="font-display text-lg text-heading mb-2">{problem.title}</h3>
-                    <p className="text-sm text-muted-foreground">{problem.description}</p>
-                  </div>
-                </GlassCard>
-              );
-            })}
-          </div>
-          <div className="text-center mt-12">
-            <p className="font-body text-lg text-heading font-semibold mb-4">Ma la buona notizia? <span className="text-gradient-teal">Si può cambiare.</span></p>
-            <Link
-              to="/contatti"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl gradient-teal text-white font-body font-semibold shadow-teal hover:shadow-lg hover:scale-105 transition-all duration-200"
-            >
-              Inizia a Cambiare Oggi <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto">
@@ -182,10 +108,10 @@ const Index = () => {
               I Nostri Servizi
             </span>
             <h2 className="font-display text-3xl md:text-4xl text-heading mb-4">
-              Quattro Modi per <span className="text-gradient-teal">Svoltare</span>
+              Scegli il Percorso <span className="text-gradient-teal">Giusto per Te</span>
             </h2>
             <p className="font-body text-muted-foreground max-w-2xl mx-auto">
-              Non un corso generico, ma quattro percorsi mirati per trasformare il tuo inglese in un superpotere professionale.
+              Quattro specializzazioni per coprire ogni aspetto della tua crescita professionale internazionale.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -241,10 +167,10 @@ const Index = () => {
                 Curriculum
               </span>
               <h2 className="font-display text-3xl md:text-4xl text-heading mb-6">
-                Zero Corsi <span className="text-gradient-orange">Copia-Incolla</span>
+                Nessun Corso <span className="text-gradient-orange">Pre-Confezionato</span>
               </h2>
               <p className="font-body text-muted-foreground mb-6">
-                Niente lezioncine preconfezionate. Ogni percorso nasce dai tuoi obiettivi reali: il tuo settore, il tuo ruolo, le tue sfide quotidiane. È come avere un coach personale che parla la tua lingua (e ti insegna l'altra).
+                Ogni percorso è costruito al 100% sui tuoi obiettivi reali. Analizziamo il tuo settore, il tuo ruolo e le tue sfide quotidiane per creare un curriculum unico.
               </p>
               <ul className="space-y-4">
                 {["Basato sui tuoi task lavorativi reali", "Materiale personalizzato per il tuo settore", "Progressione adattiva al tuo ritmo", "Feedback continuo e misurabile"].map((item) => (
@@ -344,10 +270,10 @@ const Index = () => {
       <section className="py-20 gradient-hero">
         <div className="container mx-auto text-center">
           <h2 className="font-display text-3xl md:text-4xl text-white mb-6">
-            La Tua Carriera Internazionale Inizia Qui 🎯
+            Pronto a Fare il Prossimo Passo?
           </h2>
           <p className="font-body text-white/80 max-w-xl mx-auto mb-8">
-            30 minuti, zero impegno, zero costi. Parliamo dei tuoi obiettivi e vediamo insieme come arrivarci. Spoiler: è più facile di quanto pensi.
+            Prenota una sessione gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire come possiamo aiutarti.
           </p>
           <Link
             to="/contatti"

@@ -25,7 +25,7 @@ export default function HeroSection() {
         {/* Decorative pattern */}
         <div className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: `radial-gradient(hsl(var(--orange)) 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(hsl(var(--gold)) 1px, transparent 1px)`,
             backgroundSize: "32px 32px",
           }}
         />

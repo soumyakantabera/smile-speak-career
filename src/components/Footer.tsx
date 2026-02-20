@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4">
-              <Logo size="md" variant="light" />
+              <Logo size="md" />
             </div>
             <p className="text-sm text-white/60 mt-4">
               Percorsi 100% personalizzati di Business English, Career Counselling, Interview Prep e IELTS per professionisti italiani.
