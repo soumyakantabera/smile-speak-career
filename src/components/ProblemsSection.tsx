@@ -12,11 +12,11 @@ export default function ProblemsSection() {
             Ti riconosci?
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-heading leading-tight">
-            Ti senti bloccato nella tua{" "}
-            <span className="text-gradient-orange">crescita professionale?</span>
+            Le sfide reali di chi vuole{" "}
+            <span className="text-gradient-orange">crescere professionalmente in Italia</span>
           </h2>
           <p className="font-body text-muted-foreground mt-4 text-lg">
-            Molti professionisti italiani vivono queste sfide ogni giorno nel mercato europeo. Non sei solo — e ci sono soluzioni concrete.
+            Che tu sia italiano o internazionale, vivere e lavorare in Italia richiede una strategia. Non sei solo — e ci sono soluzioni concrete per ogni sfida.
           </p>
         </div>
 

@@ -9,7 +9,7 @@ import { services } from "@/data/services";
 import { cities } from "@/data/cities";
 
 const stats = [
-  { value: "500+", label: "Professionisti formati" },
+  { value: "500+", label: "Professionisti supportati" },
   { value: "98%", label: "Soddisfazione clienti" },
   { value: "15+", label: "Settori coperti" },
   { value: "100%", label: "Percorsi personalizzati" },
@@ -51,7 +51,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "Prep with Smile",
-    description: "Corsi di Business English e coaching di carriera personalizzati per professionisti in Italia.",
+    description: "Consulenza di carriera personalizzata per professionisti italiani e internazionali in Italia. Trova lavoro, cambia carriera, negozia lo stipendio e cresci professionalmente.",
     url: "https://www.prepwithsmile.it",
     sameAs: [],
     offer: {
@@ -65,8 +65,8 @@ const Index = () => {
   return (
     <>
       <SEOHead
-        title="Corsi Business English & Coaching Carriera"
-        description="Corsi di Business English e coaching di carriera personalizzati per professionisti in Italia. Supera i colloqui in inglese, migliora nei meeting e accelera la tua carriera."
+        title="Consulenza Carriera & Coaching Professionale in Italia"
+        description="Consulenza di carriera personalizzata per professionisti italiani e internazionali in Italia. Trova lavoro, cambia carriera, preparati ai colloqui e accelera la tua crescita professionale."
         path="/"
         jsonLd={jsonLd}
       />
@@ -78,14 +78,14 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-6">
-                <Star className="w-4 h-4" /> #1 English Coaching in Italia
+                <Star className="w-4 h-4" /> #1 Career Consulting in Italia
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-heading mb-6 leading-tight">
-                Preparati al <span className="text-gradient-teal">Successo</span> con un{" "}
-                <span className="text-gradient-orange">Sorriso</span>
+                Costruisci la <span className="text-gradient-teal">Carriera</span> che{" "}
+                <span className="text-gradient-orange">Meriti</span>
               </h1>
               <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg">
-                Business English, Career Counselling, Interview Prep e IELTS. Percorsi 100% personalizzati per professionisti italiani ambiziosi.
+                Consulenza di carriera, ricerca lavoro, cambio di carriera e sviluppo professionale. Percorsi 100% personalizzati per professionisti italiani e internazionali in Italia.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link
@@ -138,7 +138,7 @@ const Index = () => {
               Scegli il Percorso <span className="text-gradient-teal">Giusto per Te</span>
             </h2>
             <p className="font-body text-muted-foreground max-w-2xl mx-auto">
-              Quattro specializzazioni per coprire ogni aspetto della tua crescita professionale internazionale.
+              Quattro specializzazioni per coprire ogni aspetto della tua crescita professionale in Italia e nel mondo.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -197,10 +197,10 @@ const Index = () => {
                 Nessun Corso <span className="text-gradient-orange">Pre-Confezionato</span>
               </h2>
               <p className="font-body text-muted-foreground mb-6">
-                Ogni percorso è costruito al 100% sui tuoi obiettivi reali. Analizziamo il tuo settore, il tuo ruolo e le tue sfide quotidiane per creare un curriculum unico.
+                Ogni percorso è costruito al 100% sui tuoi obiettivi reali. Analizziamo il tuo settore, il tuo ruolo e le tue sfide quotidiane per creare una strategia di sviluppo professionale unica.
               </p>
               <ul className="space-y-4">
-                {["Basato sui tuoi task lavorativi reali", "Materiale personalizzato per il tuo settore", "Progressione adattiva al tuo ritmo", "Feedback continuo e misurabile"].map((item) => (
+                {["Basato sui tuoi obiettivi di carriera reali", "Materiale personalizzato per il tuo settore", "Progressione adattiva al tuo ritmo", "Feedback continuo e misurabile"].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-foreground">{item}</span>

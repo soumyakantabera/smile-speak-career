@@ -15,7 +15,7 @@ export default function Footer() {
               <Logo size="md" />
             </div>
             <p className="text-sm text-white/60 mt-4">
-              Percorsi 100% personalizzati di Business English, Career Counselling, Interview Prep e IELTS per professionisti italiani.
+              Consulenza di carriera personalizzata per professionisti italiani e internazionali in Italia. Trova lavoro, cambia carriera e raggiungi i tuoi obiettivi professionali.
             </p>
           </div>
 
