@@ -36,20 +36,20 @@ export default function HeroSection() {
           {/* Pill badge */}
           <div className="animate-fade-in-up animate-delay-100 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-body font-semibold uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            Prep with Smile — Accademia di Inglese & Carriera
+            Prep with Smile — Consulenza di Carriera in Italia
           </div>
 
           {/* Title */}
           <h1 className="animate-fade-in-up animate-delay-200 font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6">
-            Parla Inglese con{" "}
-            <span className="text-gradient-gold">Sicurezza.</span>
+            Costruisci la tua{" "}
+            <span className="text-gradient-gold">Carriera.</span>
             <br />
-            Trasforma la tua Carriera.
+            Raggiungi i Tuoi Obiettivi.
           </h1>
 
           {/* Subtitle */}
           <p className="animate-fade-in-up animate-delay-300 font-body text-lg sm:text-xl text-primary-foreground/75 leading-relaxed mb-10 max-w-2xl">
-            Corsi di Business English e coaching di carriera personalizzati. Supera la paura dei colloqui e comunica con efficacia nel mondo del lavoro globale.
+            Consulenza di carriera personalizzata per professionisti italiani e internazionali in Italia. Trova lavoro, cambia carriera e cresci professionalmente con una strategia su misura.
           </p>
 
           {/* CTAs */}
@@ -73,7 +73,7 @@ export default function HeroSection() {
           {/* Stats */}
           <div className="animate-fade-in-up animate-delay-500 flex flex-wrap gap-8 mt-14 pt-10 border-t border-primary-foreground/15">
             {[
-              { value: "500+", label: "Professionisti formati" },
+              { value: "500+", label: "Professionisti supportati" },
               { value: "4–8", label: "Settimane per risultati visibili" },
               { value: "98%", label: "Tasso di soddisfazione" },
             ].map((stat) => (
