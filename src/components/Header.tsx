@@ -64,6 +64,8 @@ function DropdownMenu({
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-haspopup="true"
         className={`flex items-center gap-1 font-body text-sm transition-all duration-200 relative py-1 ${
           isActive
             ? "text-primary font-semibold"

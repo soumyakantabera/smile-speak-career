@@ -81,17 +81,17 @@ const Index = () => {
         <div className="container mx-auto relative z-10 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-6 animate-fade-in-up animate-delay-100">
                 <Star className="w-4 h-4" /> #1 Career Consulting in Italia
               </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-heading mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-heading mb-6 leading-tight animate-fade-in-up animate-delay-200">
                 Costruisci la <span className="text-gradient-teal">Carriera</span> che{" "}
                 <span className="text-gradient-orange">Meriti</span>
               </h1>
-              <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <p className="font-body text-lg text-muted-foreground mb-8 max-w-lg animate-fade-in-up animate-delay-300">
                 Consulenza di carriera, ricerca lavoro, cambio di carriera e sviluppo professionale. Percorsi 100% personalizzati per professionisti italiani e internazionali in Italia.
               </p>
-              <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="flex flex-wrap gap-4 animate-fade-in-up animate-delay-400">
                 <Link
                   to="/contatti"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl gradient-orange text-white font-body font-semibold shadow-orange hover:shadow-lg hover:scale-105 transition-all duration-200"
@@ -106,7 +106,7 @@ const Index = () => {
                 </Link>
               </div>
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 animate-fade-in-up animate-delay-500">
                 {stats.map((stat) => (
                   <div key={stat.label} className="glass-card rounded-xl p-4 text-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
                     <div className="font-display text-2xl text-primary">{stat.value}</div>
