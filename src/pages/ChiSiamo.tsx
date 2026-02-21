@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Heart, Target, Users, Award, Lightbulb } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
+import SEOHead from "@/components/SEOHead";
 
 const values = [
   { icon: Heart, title: "Passione", description: "Crediamo che imparare l'inglese debba essere un'esperienza positiva e motivante." },
@@ -18,6 +19,7 @@ const team = [
 export default function ChiSiamo() {
   return (
     <>
+      <SEOHead title="Chi Siamo" description="Scopri il team di Prep with Smile: coach esperti in Business English e career coaching per professionisti italiani." path="/chi-siamo" />
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <img

@@ -3,6 +3,7 @@ import ServiceHero from "@/components/ServiceHero";
 import PersonalizedProcess from "@/components/PersonalizedProcess";
 import CustomCurriculum from "@/components/CustomCurriculum";
 import GlassCard from "@/components/GlassCard";
+import SEOHead from "@/components/SEOHead";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import NotFound from "./NotFound";
@@ -11,8 +12,23 @@ function ServicePage({ slug }: { slug: string }) {
   const service = getServiceBySlug(slug);
   if (!service) return <NotFound />;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: service.title,
+    description: service.description,
+    provider: { "@type": "Organization", name: "Prep with Smile", url: "https://www.prepwithsmile.it" },
+  };
+
   return (
     <>
+      <SEOHead
+        title={service.title}
+        description={service.description}
+        path={`/${service.slug}`}
+        image={service.heroImage}
+        jsonLd={jsonLd}
+      />
       <ServiceHero
         title={service.title}
         subtitle={service.subtitle}

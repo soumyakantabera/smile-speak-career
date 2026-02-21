@@ -3,6 +3,7 @@ import { getCityBySlug, cities } from "@/data/cities";
 import { services } from "@/data/services";
 import { ArrowRight, MapPin, Quote } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
+import SEOHead from "@/components/SEOHead";
 import NotFound from "./NotFound";
 
 export default function CityPage() {
@@ -13,6 +14,19 @@ export default function CityPage() {
 
   return (
     <>
+      <SEOHead
+        title={`Corsi di Inglese a ${city.name}`}
+        description={city.description}
+        path={`/citta/${city.slug}`}
+        image={city.heroImage}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: `Prep with Smile - ${city.name}`,
+          description: city.description,
+          address: { "@type": "PostalAddress", addressLocality: city.name, addressCountry: "IT" },
+        }}
+      />
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <img src={city.heroImage} alt={city.name} className="absolute inset-0 w-full h-full object-cover" />
