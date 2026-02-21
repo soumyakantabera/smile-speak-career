@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "./Logo";
 import { services } from "@/data/services";
 import { cities } from "@/data/cities";
+import { problems } from "@/data/problems";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,6 +12,11 @@ const navLinks = [
     label: "Servizi",
     href: "#",
     children: services.map((s) => ({ label: s.title, href: `/${s.slug}` })),
+  },
+  {
+    label: "Problemi",
+    href: "#",
+    children: problems.slice(0, 6).map((p) => ({ label: p.shortTitle, href: `/problemi/${p.slug}` })),
   },
   {
     label: "Dove Siamo",

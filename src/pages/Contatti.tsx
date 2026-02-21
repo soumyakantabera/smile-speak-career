@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Send, Phone, Mail, MapPin, Clock } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
+import SEOHead from "@/components/SEOHead";
 
 export default function Contatti() {
   const [submitted, setSubmitted] = useState(false);
@@ -13,6 +14,7 @@ export default function Contatti() {
 
   return (
     <>
+      <SEOHead title="Contatti" description="Prenota la tua sessione gratuita di Business English o career coaching. Compila il modulo e ti ricontatteremo entro 24 ore." path="/contatti" />
       <section className="pt-32 pb-20">
         <div className="container mx-auto">
           <div className="text-center mb-16">

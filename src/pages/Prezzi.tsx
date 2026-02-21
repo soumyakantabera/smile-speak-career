@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
+import SEOHead from "@/components/SEOHead";
 
 const plans = [
   {
@@ -32,6 +33,7 @@ const plans = [
 export default function Prezzi() {
   return (
     <>
+      <SEOHead title="Prezzi" description="Piani flessibili per Business English e career coaching. Da €49/sessione. Prima sessione gratuita, nessun vincolo." path="/prezzi" />
       {/* Hero */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto text-center">

@@ -3,6 +3,8 @@ import { ArrowRight, CheckCircle, Users, Globe, Award, Star, MapPin } from "luci
 import GlassCard from "@/components/GlassCard";
 import PersonalizedProcess from "@/components/PersonalizedProcess";
 import CityCard from "@/components/CityCard";
+import ProblemsSection from "@/components/ProblemsSection";
+import SEOHead from "@/components/SEOHead";
 import { services } from "@/data/services";
 import { cities } from "@/data/cities";
 
@@ -45,8 +47,30 @@ const pricingPlans = [
 ];
 
 const Index = () => {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    name: "Prep with Smile",
+    description: "Corsi di Business English e coaching di carriera personalizzati per professionisti in Italia.",
+    url: "https://www.prepwithsmile.it",
+    sameAs: [],
+    offer: {
+      "@type": "Offer",
+      name: "Sessione Gratuita",
+      price: "0",
+      priceCurrency: "EUR",
+    },
+  };
+
   return (
     <>
+      <SEOHead
+        title="Corsi Business English & Coaching Carriera"
+        description="Corsi di Business English e coaching di carriera personalizzati per professionisti in Italia. Supera i colloqui in inglese, migliora nei meeting e accelera la tua carriera."
+        path="/"
+        jsonLd={jsonLd}
+      />
+
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-light via-background to-orange-light opacity-60" />
@@ -99,6 +123,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Problems Section */}
+      <ProblemsSection />
 
       {/* Services Grid */}
       <section className="py-20">

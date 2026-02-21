@@ -10,6 +10,7 @@ import ChiSiamo from "./pages/ChiSiamo";
 import Prezzi from "./pages/Prezzi";
 import Contatti from "./pages/Contatti";
 import CityPage from "./pages/CityPage";
+import ProblemPage from "./pages/ProblemPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/prezzi" element={<Prezzi />} />
             <Route path="/contatti" element={<Contatti />} />
             <Route path="/citta/:slug" element={<CityPage />} />
+            <Route path="/problemi/:slug" element={<ProblemPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
