@@ -21,7 +21,7 @@ const navLinks = [
   { label: "Prezzi", href: "/prezzi" },
 ];
 
-function DropdownMenu({ label, children, onNavigate }: { label: string; children: { label: string; href: string }[]; onNavigate?: () => void }) {
+function DropdownMenu({ label, children, scrolled, onNavigate }: { label: string; children: { label: string; href: string }[]; scrolled: boolean; onNavigate?: () => void }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,9 @@ function DropdownMenu({ label, children, onNavigate }: { label: string; children
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 font-body text-sm text-foreground/80 hover:text-primary transition-colors duration-200"
+        className={`flex items-center gap-1 font-body text-sm transition-colors duration-200 ${
+          scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
+        }`}
       >
         {label} <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -91,15 +93,15 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) =>
             link.children ? (
-              <DropdownMenu key={link.label} label={link.label} children={link.children} />
+              <DropdownMenu key={link.label} label={link.label} children={link.children} scrolled={scrolled} />
             ) : (
               <Link
                 key={link.label}
                 to={link.href}
                 className={`font-body text-sm transition-colors duration-200 ${
                   location.pathname === link.href
-                    ? "text-primary font-semibold"
-                    : "text-foreground/80 hover:text-primary"
+                    ? scrolled ? "text-primary font-semibold" : "text-white font-semibold"
+                    : scrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -117,7 +119,10 @@ export default function Header() {
         </Link>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button
+          className={`lg:hidden ${scrolled ? "text-foreground" : "text-white"}`}
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
