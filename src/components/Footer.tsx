@@ -21,7 +21,7 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-white text-sm uppercase tracking-wider mb-4">Servizi</h4>
+            <h4 className="font-display text-white text-sm uppercase tracking-wider mb-4">Corsi</h4>
             <ul className="space-y-2">
               {services.map((s) => (
                 <li key={s.slug}>
