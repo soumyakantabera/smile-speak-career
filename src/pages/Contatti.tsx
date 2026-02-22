@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Send, Phone, Mail, MapPin, Clock } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 import SEOHead from "@/components/SEOHead";
@@ -15,8 +14,18 @@ export default function Contatti() {
   return (
     <>
       <SEOHead title="Contatti" description="Prenota la tua sessione gratuita di Business English o career coaching. Compila il modulo e ti ricontatteremo entro 24 ore." path="/contatti" />
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto">
+
+      {/* Hero with image */}
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
+            alt="Professional workspace"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
+        </div>
+        <div className="container mx-auto relative z-10 pt-12">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-4">Contattaci</span>
             <h1 className="font-display text-4xl md:text-5xl text-heading mb-6">
@@ -26,7 +35,11 @@ export default function Contatti() {
               Compila il modulo e ti ricontatteremo entro 24 ore per fissare la tua sessione gratuita di 30 minuti.
             </p>
           </div>
+        </div>
+      </section>
 
+      <section className="pb-20">
+        <div className="container mx-auto">
           <div className="grid lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {/* Contact Info */}
             <div className="space-y-6">
@@ -49,6 +62,16 @@ export default function Contatti() {
                   </GlassCard>
                 );
               })}
+
+              {/* Secondary image */}
+              <div className="rounded-2xl overflow-hidden shadow-lg hidden lg:block">
+                <img
+                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80"
+                  alt="Coaching session"
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             {/* Form */}
