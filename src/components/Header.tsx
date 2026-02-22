@@ -41,30 +41,36 @@ function DropdownMenu({
   label,
   children,
   isActive,
+  isOpen,
+  onToggle,
   onNavigate,
 }: {
   label: string;
   children: { label: string; href: string; description?: string }[];
   isActive?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
   onNavigate?: () => void;
 }) {
-  const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasDescriptions = children.some((c) => c.description);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node) && isOpen) onToggle();
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
+  }, [isOpen, onToggle]);
 
   return (
     <div ref={ref} className="relative">
       <button
-        onClick={() => setOpen(!open)}
-        aria-expanded={open}
+        onClick={(e) => {
+          e.stopPropagation();
+          onToggle();
+        }}
+        aria-expanded={isOpen}
         aria-haspopup="true"
         className={`flex items-center gap-1.5 font-body text-sm font-medium transition-all duration-200 relative py-2 group ${
           isActive
@@ -74,21 +80,19 @@ function DropdownMenu({
       >
         {label}
         <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         />
-        {/* Hover underline animation */}
         <span className={`absolute bottom-0 left-0 h-0.5 rounded-full gradient-teal transition-all duration-300 ${
           isActive ? "w-full" : "w-0 group-hover:w-full"
         }`} />
       </button>
-      {open && (
+      {isOpen && (
         <div
           className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 glass-strong rounded-2xl shadow-lg py-2 z-50 ${
             hasDescriptions ? "w-80" : "w-56"
           }`}
           style={{ animation: "fadeInUp 0.2s ease-out forwards" }}
         >
-          {/* Arrow */}
           <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white/85 border-l border-t border-white/40 rotate-45 rounded-tl" />
           <div className="relative z-10 max-h-[60vh] overflow-y-auto">
             {children.map((child) => (
@@ -97,7 +101,7 @@ function DropdownMenu({
                 to={child.href}
                 className="flex flex-col px-5 py-3 text-sm transition-all duration-150 hover:bg-primary/5 border-l-2 border-transparent hover:border-primary first:rounded-t-xl last:rounded-b-xl"
                 onClick={() => {
-                  setOpen(false);
+                  onToggle();
                   onNavigate?.();
                 }}
               >
@@ -122,6 +126,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -162,6 +167,8 @@ export default function Header() {
                 isActive={link.children.some(
                   (c) => location.pathname === c.href
                 )}
+                isOpen={openDropdown === link.label}
+                onToggle={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
               />
             ) : (
               <Link
