@@ -6,7 +6,7 @@ import SEOHead from "@/components/SEOHead";
 const plans = [
   {
     name: "Starter",
-    price: "49",
+    price: "9",
     period: "/sessione",
     description: "Perfetto per iniziare il tuo percorso",
     features: ["Sessione 1:1 da 60 minuti", "Materiale personalizzato", "Feedback scritto post-sessione", "Flessibilità oraria completa", "Annullamento gratuito 24h prima"],
@@ -14,7 +14,7 @@ const plans = [
   },
   {
     name: "Professional",
-    price: "189",
+    price: "49",
     period: "/mese",
     description: "Il piano più scelto dai professionisti",
     features: ["4 sessioni 1:1 da 60 min", "Curriculum 100% personalizzato", "Supporto via chat illimitato", "Materiale esclusivo e aggiornato", "Report mensile dei progressi", "Accesso area riservata"],
@@ -33,10 +33,18 @@ const plans = [
 export default function Prezzi() {
   return (
     <>
-      <SEOHead title="Prezzi" description="Piani flessibili per Business English e career coaching. Da €49/sessione. Prima sessione gratuita, nessun vincolo." path="/prezzi" />
-      {/* Hero */}
-      <section className="pt-32 pb-16">
-        <div className="container mx-auto text-center">
+      <SEOHead title="Prezzi" description="Piani flessibili per career coaching. Da €9/sessione. Prima sessione gratuita, nessun vincolo." path="/prezzi" />
+      {/* Hero with image */}
+      <section className="relative pt-24 pb-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&q=80"
+            alt="Professional team"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background" />
+        </div>
+        <div className="container mx-auto text-center relative z-10 pt-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-semibold mb-4">Prezzi Trasparenti</span>
           <h1 className="font-display text-4xl md:text-5xl text-heading mb-6">
             Investi nella Tua <span className="text-gradient-orange">Crescita</span>

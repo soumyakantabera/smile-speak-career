@@ -26,14 +26,14 @@ const homeProcessSteps = [
 const pricingPlans = [
   {
     name: "Starter",
-    price: "49",
+    price: "9",
     period: "/sessione",
     features: ["Sessioni 1:1 da 60 min", "Materiale personalizzato", "Feedback scritto post-sessione", "Flessibilità oraria"],
     popular: false,
   },
   {
     name: "Professional",
-    price: "189",
+    price: "49",
     period: "/mese",
     features: ["4 sessioni 1:1 da 60 min", "Curriculum personalizzato", "Supporto via chat illimitato", "Materiale esclusivo", "Report mensile progressi"],
     popular: true,
@@ -124,6 +124,20 @@ const Index = () => {
               <div className="absolute -bottom-6 -left-6 w-40 h-40 rounded-3xl gradient-teal opacity-20 blur-2xl" />
               <div className="absolute -top-6 -right-6 w-32 h-32 rounded-full gradient-orange opacity-20 blur-2xl" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Bar */}
+      <section className="py-8 border-y border-border/30">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 text-muted-foreground">
+            {["500+ Professionisti", "98% Soddisfazione", "15+ Settori", "100% Online"].map((item) => (
+              <div key={item} className="flex items-center gap-2 text-sm font-medium">
+                <Award className="w-4 h-4 text-primary" />
+                {item}
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -66,41 +66,42 @@ function DropdownMenu({
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="true"
-        className={`flex items-center gap-1 font-body text-sm transition-all duration-200 relative py-1 ${
+        className={`flex items-center gap-1.5 font-body text-sm font-medium transition-all duration-200 relative py-2 group ${
           isActive
-            ? "text-primary font-semibold"
-            : "text-foreground/70 hover:text-primary"
+            ? "text-primary"
+            : "text-foreground/80 hover:text-primary"
         }`}
       >
         {label}
         <ChevronDown
-          className={`w-3.5 h-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`w-3.5 h-3.5 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
-        {isActive && (
-          <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full gradient-teal" />
-        )}
+        {/* Hover underline animation */}
+        <span className={`absolute bottom-0 left-0 h-0.5 rounded-full gradient-teal transition-all duration-300 ${
+          isActive ? "w-full" : "w-0 group-hover:w-full"
+        }`} />
       </button>
       {open && (
         <div
-          className={`absolute top-full left-1/2 -translate-x-1/2 mt-4 bg-white rounded-2xl shadow-lg border border-border/50 py-3 z-50 animate-fade-in-up ${
-            hasDescriptions ? "w-72" : "w-52"
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 glass-strong rounded-2xl shadow-lg py-2 z-50 ${
+            hasDescriptions ? "w-80" : "w-56"
           }`}
-          style={{ animationDuration: "0.2s" }}
+          style={{ animation: "fadeInUp 0.2s ease-out forwards" }}
         >
-          {/* Dropdown arrow */}
-          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white border-l border-t border-border/50 rotate-45 rounded-tl" />
-          <div className="relative z-10">
+          {/* Arrow */}
+          <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white/85 border-l border-t border-white/40 rotate-45 rounded-tl" />
+          <div className="relative z-10 max-h-[60vh] overflow-y-auto">
             {children.map((child) => (
               <Link
                 key={child.href}
                 to={child.href}
-                className="flex flex-col px-5 py-2.5 text-sm hover:bg-accent/40 transition-colors duration-150 first:rounded-t-xl last:rounded-b-xl"
+                className="flex flex-col px-5 py-3 text-sm transition-all duration-150 hover:bg-primary/5 border-l-2 border-transparent hover:border-primary first:rounded-t-xl last:rounded-b-xl"
                 onClick={() => {
                   setOpen(false);
                   onNavigate?.();
                 }}
               >
-                <span className="font-medium text-foreground/90 group-hover:text-primary">
+                <span className="font-medium text-foreground/90">
                   {child.label}
                 </span>
                 {child.description && (
@@ -138,18 +139,20 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-xl shadow-lg py-2.5"
-          : "bg-white/60 backdrop-blur-md py-4"
+          ? "bg-white/95 backdrop-blur-2xl shadow-xl py-2"
+          : "bg-white/80 backdrop-blur-2xl py-3.5"
       }`}
     >
-      {/* Subtle gradient line at top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] gradient-teal opacity-80" />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] gradient-teal" />
+      {/* Bottom border for non-scrolled */}
+      <div className={`absolute bottom-0 left-0 right-0 h-px bg-border/30 transition-opacity duration-300 ${scrolled ? "opacity-0" : "opacity-100"}`} />
 
       <div className="container mx-auto flex items-center justify-between">
         <Logo size="md" />
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) =>
             link.children ? (
               <DropdownMenu
@@ -164,16 +167,16 @@ export default function Header() {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`font-body text-sm transition-all duration-200 relative py-1 ${
+                className={`font-body text-sm font-medium transition-all duration-200 relative py-2 group ${
                   location.pathname === link.href
-                    ? "text-primary font-semibold"
-                    : "text-foreground/70 hover:text-primary"
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-primary"
                 }`}
               >
                 {link.label}
-                {location.pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full gradient-teal" />
-                )}
+                <span className={`absolute bottom-0 left-0 h-0.5 rounded-full gradient-teal transition-all duration-300 ${
+                  location.pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                }`} />
               </Link>
             )
           )}
@@ -182,7 +185,7 @@ export default function Header() {
         {/* CTA */}
         <Link
           to="/contatti"
-          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full gradient-orange text-white font-body font-semibold text-sm shadow-orange hover:shadow-lg hover:scale-105 transition-all duration-300 group"
+          className="hidden lg:inline-flex items-center gap-2 px-6 py-2.5 rounded-full gradient-orange text-white font-body font-semibold text-sm shadow-orange hover:shadow-lg hover:scale-105 active:scale-100 transition-all duration-300 group"
         >
           <Sparkles className="w-4 h-4 group-hover:animate-pulse" />
           Sessione GRATIS
@@ -192,6 +195,7 @@ export default function Header() {
         <button
           className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl hover:bg-accent/50 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
         >
           {mobileOpen ? (
             <X className="w-5 h-5 text-foreground" />
@@ -202,48 +206,55 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-border/50 mt-2 py-5 shadow-lg">
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
+        mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
+      }`}>
+        <div className="bg-white/95 backdrop-blur-2xl border-t border-border/30 py-5 shadow-lg">
           <nav className="container mx-auto flex flex-col gap-1">
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.label}>
                   <button
-                    className="flex items-center justify-between w-full py-3 px-2 font-body text-foreground/80 hover:text-primary rounded-lg hover:bg-accent/30 transition-colors"
+                    className="flex items-center justify-between w-full py-3.5 px-3 font-body font-medium text-foreground/80 hover:text-primary rounded-xl hover:bg-accent/30 transition-colors"
                     onClick={() =>
                       setMobileDropdown(
                         mobileDropdown === link.label ? null : link.label
                       )
                     }
                   >
-                    <span className="font-medium">{link.label}</span>
+                    <span>{link.label}</span>
                     <ChevronDown
-                      className={`w-4 h-4 transition-transform duration-200 ${
+                      className={`w-4 h-4 transition-transform duration-300 ${
                         mobileDropdown === link.label ? "rotate-180" : ""
                       }`}
                     />
                   </button>
-                  {mobileDropdown === link.label && (
+                  <div className={`overflow-hidden transition-all duration-300 ${
+                    mobileDropdown === link.label ? "max-h-[50vh] opacity-100" : "max-h-0 opacity-0"
+                  }`}>
                     <div className="pl-4 space-y-0.5 pb-2">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           to={child.href}
-                          className="block py-2.5 px-3 text-sm text-foreground/60 hover:text-primary hover:bg-accent/20 rounded-lg transition-colors"
+                          className="flex flex-col py-3 px-4 text-sm text-foreground/60 hover:text-primary hover:bg-accent/20 rounded-xl transition-colors border-l-2 border-transparent hover:border-primary"
                         >
-                          {child.label}
+                          <span className="font-medium">{child.label}</span>
+                          {"description" in child && child.description && (
+                            <span className="text-xs text-muted-foreground mt-0.5">{(child as any).description}</span>
+                          )}
                         </Link>
                       ))}
                     </div>
-                  )}
+                  </div>
                 </div>
               ) : (
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`py-3 px-2 font-body rounded-lg transition-colors ${
+                  className={`py-3.5 px-3 font-body font-medium rounded-xl transition-colors ${
                     location.pathname === link.href
-                      ? "text-primary font-semibold bg-accent/30"
+                      ? "text-primary bg-accent/30"
                       : "text-foreground/80 hover:text-primary hover:bg-accent/30"
                   }`}
                 >
@@ -253,14 +264,14 @@ export default function Header() {
             )}
             <Link
               to="/contatti"
-              className="mt-3 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl gradient-orange text-white font-body font-semibold text-sm shadow-orange"
+              className="mt-3 inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl gradient-orange text-white font-body font-semibold text-sm shadow-orange"
             >
               <Sparkles className="w-4 h-4" />
               Prenota Sessione GRATIS
             </Link>
           </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 }
