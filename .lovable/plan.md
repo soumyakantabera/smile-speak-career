@@ -1,168 +1,104 @@
 
-
-# Prep with Smile -- Complete Redesign Plan
+# Redesign: Navbar, City Images, Page Images, Pricing Update
 
 ## Overview
-Transform the current single-page site into a content-rich, multi-page website with a fresh light theme (teal + orange), glassmorphism effects, dedicated service pages, and city location pages.
+Complete navbar redesign with enhanced glassmorphism, fix city image links, add compelling images to every page, and update pricing to Starter EUR 9 / Professional EUR 49.
 
 ---
 
-## 1. Theme Overhaul: Light Teal + Orange
+## 1. Navbar Redesign
 
-Replace the current dark navy palette with a bright, modern light theme:
+Replace the current basic glass navbar with a premium, modern design:
 
-- **Primary (Teal):** #0D9488 (teal-600) for headers, buttons, accents
-- **Secondary (Orange):** #F97316 (orange-500) for CTAs, highlights, badges
-- **Background:** #F8FAFB (very light cool white)
-- **Surface:** white with glassmorphism (semi-transparent backgrounds + backdrop-blur)
-- **Text:** #1E293B (slate-800) for body, #0F172A (slate-900) for headings
-- **Gradients:** teal-to-emerald for headers, orange-to-amber for CTAs
+- **Top bar**: Thin teal gradient accent line (already exists, keep it)
+- **Non-scrolled state**: `bg-white/80 backdrop-blur-2xl` with a subtle bottom border for contrast against any hero image
+- **Scrolled state**: `bg-white/95 backdrop-blur-2xl shadow-xl` with slight padding reduction
+- **Logo**: Keep current Logo component
+- **Nav links**: Increase spacing, add hover underline animation (teal gradient underline slides in from left)
+- **Dropdowns**: Redesign with glassmorphism (`glass-strong` class), larger padding, subtle teal left-border on hover for each item, and smooth entry animation
+- **CTA button**: Keep gradient-orange rounded-full button, add subtle glow pulse on hover
+- **Mobile menu**: Full glass overlay with smooth slide-down animation, larger touch targets, service descriptions in mobile dropdown items
 
----
-
-## 2. Glassmorphism Design System
-
-Add reusable glass-effect utilities in `index.css`:
-
-- `.glass` -- `background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.3);`
-- `.glass-dark` -- teal-tinted glass for hero overlays
-- Glass cards throughout all sections (navbar, service cards, pricing cards, location cards)
+### Key visual improvements:
+- Always-visible navbar background (no more transparency issues over hero images)
+- Dropdown menus with glass effect instead of plain white
+- Active link indicator: teal dot below text instead of full underline
+- Cleaner spacing and typography hierarchy
 
 ---
 
-## 3. Logo
+## 2. Fix City Image Links
 
-Create an SVG logo component (`src/components/Logo.tsx`) featuring a stylized "P" with a smile curve in teal + orange, with "Prep with Smile" text beside it. Used in Header and Footer.
+The city images in `src/data/cities.ts` use Unsplash URLs which should work fine. The issue is likely:
+- Some Unsplash image IDs may be invalid/removed
+- Will verify and replace any broken image URLs with confirmed working Unsplash photos:
+  - Milano: Duomo/skyline
+  - Roma: Colosseum
+  - Torino: Mole Antonelliana (current ID `1614531341773-3bff8b7cb3fc` may be broken -- replace)
+  - Firenze: Duomo/Ponte Vecchio (current ID `1543429776-2782fc8e5a06` may be broken -- replace)
+  - Bologna: Piazza Maggiore (current ID `1598971639058-999690271e1e` may be broken -- replace)
+  - Napoli: Gulf view (current ID `1516483638261-f4dbaf036963` may be broken -- replace)
 
----
-
-## 4. Multi-Page Routing
-
-Convert from single-page scroll to a multi-page site with shared Header/Footer layout.
-
-**Pages to create:**
-
-| Route | File | Description |
-|-------|------|-------------|
-| `/` | `pages/Index.tsx` | Home (hero, problems, process overview, testimonials preview, CTA) |
-| `/business-english` | `pages/BusinessEnglish.tsx` | Full service page with hero image, curriculum, process |
-| `/career-counselling` | `pages/CareerCounselling.tsx` | Career coaching, CV, LinkedIn, personal branding |
-| `/interview-prep` | `pages/InterviewPrep.tsx` | Mock interviews, strategies, confidence building |
-| `/ielts-prep` | `pages/IELTSPrep.tsx` | IELTS exam prep, scoring strategies, practice tests |
-| `/chi-siamo` | `pages/ChiSiamo.tsx` | About us, mission, team |
-| `/prezzi` | `pages/Prezzi.tsx` | Pricing plans |
-| `/contatti` | `pages/Contatti.tsx` | Contact form |
-| `/citta/:slug` | `pages/CityPage.tsx` | Dynamic city location pages |
-
-**Layout component** (`src/components/Layout.tsx`): wraps all pages with Header + Footer.
+Will use verified, high-quality Unsplash URLs for all cities.
 
 ---
 
-## 5. Service Pages Structure (Each Page)
+## 3. Add Images to Every Page
 
-Each of the 4 service pages follows a consistent template:
+### Pages needing image enhancements:
 
-1. **Hero banner** -- full-width image with glassmorphism overlay, title, subtitle, CTA
-2. **"What You'll Learn" grid** -- 6-8 topic cards with icons
-3. **"100% Personalized Process"** section -- 4-step visual timeline showing diagnostic, custom curriculum design, live sessions, results
-4. **"Customized Curriculum"** section -- detailed breakdown of what the curriculum covers, tailored to the service
-5. **Additional images** -- 2-3 professional Unsplash images per page
-6. **CTA banner** -- book free session
+**Prezzi page** (`Prezzi.tsx`):
+- Add a hero section with a professional image background (glassmorphism overlay)
+- Add a decorative image between pricing cards and FAQ
 
-### Service Content:
+**Contatti page** (`Contatti.tsx`):
+- Add a hero image with gradient overlay (professional workspace/team image)
+- Add a secondary image in the contact info sidebar
 
-**Business English:** Presentations, negotiations, emails, meetings, cross-cultural communication, business writing
+**Chi Siamo page** (`ChiSiamo.tsx`):
+- Already has images -- verify they load correctly
+- Add team member photos (Unsplash professional headshots)
 
-**Career Counselling:** CV optimization, LinkedIn branding, salary negotiation, personal branding, career strategy, networking
+**Problem pages** (`ProblemPage.tsx`):
+- Already have hero + secondary images -- verify all 8 problem image URLs work
+- Replace any broken ones
 
-**Interview Prep:** Mock interviews, STAR method, behavioral questions, confidence techniques, company research, follow-up strategies
+**Service pages** (`ServicePage.tsx`):
+- Already have hero + secondary images -- verify all 4 service image URLs work
 
-**IELTS Prep:** Listening/reading/writing/speaking modules, scoring strategies, timed practice, common mistakes, band score targets
-
----
-
-## 6. City Location Pages
-
-Create pages for top Italian cities where services are offered (online-focused but locally relevant):
-
-- Milano (`/citta/milano`)
-- Roma (`/citta/roma`)
-- Torino (`/citta/torino`)
-- Firenze (`/citta/firenze`)
-- Bologna (`/citta/bologna`)
-- Napoli (`/citta/napoli`)
-
-Each city page includes:
-- Hero with a city landmark photo
-- "Corsi di inglese a [City]" heading (SEO)
-- Local context paragraph
-- Services available grid
-- Glassmorphism testimonial card
-- Contact CTA
-
-Data-driven: single `CityPage.tsx` component with a cities data file (`src/data/cities.ts`).
+**Homepage** (`Index.tsx`):
+- Already has images -- verify hero image loads
+- Add a testimonial section image
 
 ---
 
-## 7. Updated Home Page
+## 4. Update Pricing
 
-The home page becomes a hub linking to all service pages:
+Update prices across two locations:
 
-1. **Hero** -- new light-themed hero with teal/orange gradient text, front image of professional, glass-effect stat cards
-2. **Services Grid** -- 4 glass cards (Business English, Career Counselling, Interview Prep, IELTS Prep) each linking to their page with a thumbnail image
-3. **"100% Personalized Process"** -- 4-step overview with icons and glassmorphism cards
-4. **"Customized Curriculum" highlight** -- brief section explaining tailored approach
-5. **City locations preview** -- horizontal scroll of city cards linking to `/citta/[slug]`
-6. **Pricing preview** -- 3 plan cards
-7. **Contact CTA**
+**`src/pages/Prezzi.tsx`**: Change Starter from EUR 49 to EUR 9, Professional from EUR 189 to EUR 49
+
+**`src/pages/Index.tsx`** (homepage pricing preview): Same price updates -- Starter EUR 9, Professional EUR 49
 
 ---
 
-## 8. Updated Navigation
+## 5. Make Website More "Catchy"
 
-Header nav links updated to:
-- Home (`/`)
-- Servizi (dropdown: Business English, Career Counselling, Interview Prep, IELTS Prep)
-- Dove Siamo (dropdown: city links)
-- Chi Siamo (`/chi-siamo`)
-- Prezzi (`/prezzi`)
-- CTA button: "Prenota Sessione GRATIS" (`/contatti`)
+- Add subtle floating decorative elements (gradient blurs) to key sections
+- Enhance CTA buttons with micro-interactions (scale + shadow on hover)
+- Add a "trust bar" or social proof strip below the homepage hero
+- Improve the ProblemsSection with images/thumbnails for each problem card
 
 ---
 
-## 9. Technical Details
-
-### Files to create:
-- `src/components/Logo.tsx` -- SVG logo
-- `src/components/Layout.tsx` -- shared layout wrapper
-- `src/components/ServiceHero.tsx` -- reusable hero for service pages
-- `src/components/PersonalizedProcess.tsx` -- reusable 4-step process section
-- `src/components/CustomCurriculum.tsx` -- reusable curriculum section
-- `src/components/CityCard.tsx` -- city preview card
-- `src/components/GlassCard.tsx` -- reusable glassmorphism card
-- `src/data/cities.ts` -- city data
-- `src/data/services.ts` -- service page data
-- `src/pages/BusinessEnglish.tsx`
-- `src/pages/CareerCounselling.tsx`
-- `src/pages/InterviewPrep.tsx`
-- `src/pages/IELTSPrep.tsx`
-- `src/pages/ChiSiamo.tsx`
-- `src/pages/Prezzi.tsx`
-- `src/pages/Contatti.tsx`
-- `src/pages/CityPage.tsx`
+## Technical Details
 
 ### Files to modify:
-- `src/index.css` -- new teal/orange theme variables, glassmorphism utilities
-- `tailwind.config.ts` -- updated color tokens
-- `src/App.tsx` -- add all new routes with Layout wrapper
-- `src/components/Header.tsx` -- new nav structure with dropdowns, light theme, logo
-- `src/components/Footer.tsx` -- updated links, light-compatible footer
-- `src/pages/Index.tsx` -- completely restructured home page
-- `src/components/HeroSection.tsx` -- light theme + glassmorphism redesign
+- `src/components/Header.tsx` -- Complete navbar redesign
+- `src/data/cities.ts` -- Fix broken image URLs
+- `src/pages/Prezzi.tsx` -- Add hero image, update prices (9/49)
+- `src/pages/Index.tsx` -- Update pricing preview (9/49), add visual enhancements
+- `src/pages/Contatti.tsx` -- Add hero image section
+- `src/index.css` -- Add new animation utilities if needed
 
-### Files to remove/replace:
-- `src/components/SpecializzazioniSection.tsx` -- removed (replaced by service pages)
-
-### Images (Unsplash):
-Each page will use 2-3 high-quality professional images sourced from Unsplash, matching the light professional aesthetic. City pages use landmark/cityscape photos.
-
+### No new files needed -- all changes are modifications to existing components and data.
